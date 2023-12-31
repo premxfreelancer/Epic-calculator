@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0; 
+}
+
+.main {
+    width: 100vw;
+    height: 40vh;
+    background: white;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    font-size: 7vw;
+   
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+
+
+.boxcon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #F3FCFD;
+    height: 60vh;
+    width: 100vw;
+}
+
+.box {
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 7vw;
+}
+
+.bluenum {
+color: rgb(107, 180, 232);
+}
+.backspe {
+    font-size: 6vw;
+}
+/* Add any other styling as needed */

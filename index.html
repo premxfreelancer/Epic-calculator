@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+<div id="main-display"></div>
+
+    </div>
+    <div class="boxcon">
+        <div class="box1 box bluenum" onclick="clearDisplay()">C</div>
+        <div class="box2 box bluenum" onclick="appendSymbol('%')">%</div>
+        <div class="box3 box bluenum backspe" onclick="backspace()">⌫</div>
+        <div class="box4 box bluenum" onclick="appendSymbol('/')">÷</div>
+        <div class="box5 box" onclick="appendDigit('7')">7</div>
+        <div class="box6 box" onclick="appendDigit('8')">8</div>
+        <div class="box7 box" onclick="appendDigit('9')">9</div>
+        <div class="box8 box bluenum" onclick="appendSymbol('*')">×</div>
+        <div class="box9 box" onclick="appendDigit('4')">4</div>
+        <div class="box10 box" onclick="appendDigit('5')">5</div>
+        <div class="box11 box" onclick="appendDigit('6')">6</div>
+        <div class="box12 box bluenum" onclick="appendSymbol('-')">-</div>
+        <div class="box13 box" onclick="appendDigit('1')">1</div>
+        <div class="box14 box" onclick="appendDigit('2')">2</div>
+        <div class="box15 box" onclick="appendDigit('3')">3</div>
+        <div class="box16 box bluenum" onclick="appendSymbol('+')">+</div>
+        <div class="box17 box" onclick="appendDigit('00')">00</div>
+        <div class="box18 box" onclick="appendDigit('0')">0</div>
+        <div class="box19 box" onclick="appendSymbol('.')">.</div>
+        <div class="box20 box bluenum" onclick="calculate()">=</div>
+    </div>
+
+    <script>
+        let currentExpression = '';
+
+        function appendDigit(digit) {
+            currentExpression += digit;
+            updateMainDisplay();
+        }
+
+        function appendSymbol(symbol) {
+            currentExpression += symbol;
+            updateMainDisplay();
+        }
+
+        function backspace() {
+            currentExpression = currentExpression.slice(0, -1);
+            updateMainDisplay();
+        }
+
+        function clearDisplay() {
+            currentExpression = '';
+            updateMainDisplay();
+        }
+
+        function calculate() {
+            try {
+                const result = eval(currentExpression);
+                currentExpression = result.toString();
+                updateMainDisplay();
+            } catch (error) {
+                currentExpression = 'Error';
+                updateMainDisplay();
+            }
+        }
+
+        function updateMainDisplay() {
+            document.getElementById('main-display').innerText = currentExpression;
+        }
+    </script>
+</body>
+</html>
